@@ -1,4 +1,5 @@
-##import pandas as pd
+#import csv
+import pandas as pd
 
 # Declaring a class
 class Employee:
@@ -6,7 +7,7 @@ class Employee:
     scientific_name = "Homo Sapien Sapiens"
     
     # To list all the instances of an object created
-    all_instances = []
+    all_employees = []
     
     # creating constructor
     # name and skill to be str type always
@@ -20,7 +21,7 @@ class Employee:
         self.bike = has_bike
         
         # Store all instances in a list
-        Employee.all_instances.append(self)
+        Employee.all_employees.append(self)
         
     # creating methods
     def skills_with_name(self):
@@ -32,21 +33,38 @@ class Employee:
     # Magic method to represent the object (maybe)
     def __repr__(self):
         return f"{self.name}-{self.skill}-{self.bike} from class {self.__class__.__name__}"
-        
-    # Class method to operate on class itself rather than instance; decorator
-    # @classmethod
-    # class create_instance(cls):
-    #     pass
 
-    # Creating read only attributes using "decorator"
-##    @property
-##    def 
+    # Get data from csv, not passing any arguement cause this is supposed to read and create objects
+    # Access or modify class-level attributes
+    @classmethod
+    def get_csv_data(cls):
+        df = pd.read_csv('data.csv')
+        for index, emp in df.iterrows():
+            Employee(emp['name'], emp['skill'], str(emp['bike']))
+
+    # Methods that are not dependent on a secific class or instance
+    @staticmethod
+    def display_skill(arg):
+        print(arg)
+
+##    def instance_method(self):
+##        Employee.all_employees.append(self)
+
+    # Creating read only attributes using "decorator", its a read only attribute
+    @property
+    def name(self):
+        return self.name
+
+Employee.get_csv_data()
 
 # Creating an instance 
 emp1 = Employee("Rohit Sharma", "Power Automate")
 emp1.has_masters = True
 emp1.name = "New Name"
-emp1.display_details()
+##emp1.instance_method()
+print(Employee.all_employees)
+print(Employee.display_skill("Driving"))
+# emp1.display_details()
 # print(emp1.has_masters)
 
 emp2 = Employee("Rahul Sharma", "MR", "True")
