@@ -69,8 +69,36 @@ print(var.pop())
 print(var)
 print(type(var))
 print('----')
-# 4) Tuple: 
-# 5) Set: 
+# 4) Tuple: A tuple is a data type used to represent an ordered and immutable collection of elements. Similar to lists, tuples can hold elements of different data types, such as integers, strings, floats, or even other tuples.
+# Declaration
+tpl = (1,"Rohit",True)
+print(type(tpl)) # <class 'list'>
+print(tpl)       # (1, 'Rohit', True)
+
+# Indexing and slicing
+print(tpl[1])  # Rohit
+print(tpl[:1]) # (1, )
+# tpl[1] = 2
+print(type((1)))  # <class 'int'>
+print(type((1,))) # <class 'tuple'>
+
+# Nested tuple
+nest_tpl = (1,2,3,(1,2))
+print(nest_tpl) # (1,2,3,(1,2))
+
+print('----')
+# 5) Set: A set is a data type used to represent an unordered collection of unique elements.
+set = {3, 3, 2, 0, True, "Rohit", False}
+print(set)          # {0, True, 2, 3, "Rohit"}
+print(type(set))    # <class 'set'>
+
+# Add/Remove
+set.add("Sharma")   
+print(set)          # {0, True, 2, 3, "Rohit", "Sharma"}
+set.remove(False)
+print(set)          # {True, 2, 3, "Rohit", "Sharma"}
+
+print('----')
 # 6) String:  
 # 7) Range: 
 # ----------------------Sequence--------------------
