@@ -35,17 +35,30 @@ class Employee:
         return f"{self.name}-{self.skill}-{self.bike} from class {self.__class__.__name__}"
 
     # Get data from csv, not passing any arguement cause this is supposed to read and create objects
-    # Access or modify class-level attributes
+    # No access to instance level attributes, can access or modify class-level attributes
+    # Can be invoked usng class name
     @classmethod
     def get_csv_data(cls):
         df = pd.read_csv('data.csv')
         for index, emp in df.iterrows():
             Employee(emp['name'], emp['skill'], str(emp['bike']))
 
+    @classmethod
+    def change_scientific_name():
+        cls.scientific_name = 'Homo Sapiens'
+        print(cls.scientific_name)
+
     # Methods that are not dependent on a secific class or instance
+    # No access to instance or class i.e. can not modify instance or class attributes
+    # No arguement required to be passed
     @staticmethod
     def display_skill(arg):
         print(arg)
+
+    @staticmethod
+    def company_detail():
+        print('PwC India is a 150 year old company')
+
 
 ##    def instance_method(self):
 ##        Employee.all_employees.append(self)
@@ -56,6 +69,9 @@ class Employee:
         return self.name
 
 Employee.get_csv_data()
+
+Employee.company_detail() # PwC India is a 150 year old company
+Employee.change_scientific_name() # Homo Sapiens
 
 # Creating an instance 
 emp1 = Employee("Rohit Sharma", "Power Automate")
