@@ -99,7 +99,47 @@ set.remove(False)
 print(set)          # {True, 2, 3, "Rohit", "Sharma"}
 
 print('----')
-# 6) String:  
+# 6) String:  A string is a data type used to represent a sequence of characters.
+var_str = "I am learning Python language"
+print(var_str) # I am learning Python language
+mult_str = """
+    I am writing a story.
+    Once upon a time....
+"""
+print(mult_str)
+print(type(mult_str))
+print(len(var_str))
+
+# Indexing
+print(var_str[0])
+print(var_str[3])
+print(var_str[-1])
+
+# slicing
+print(var_str[3:6])
+print(var_str[:4])
+
+# Comma issue
+comma_str = "A comma' string"
+print(comma_str)
+
+# Formatted strings
+ques = "What you doing?"
+ans = "Learning Python"
+ques_ans = ques + ans
+# print(ques_ans)
+print("{} {}".format(ques, ans))
+
+# String Methods
+print(comma_str.upper())
+wrong_data = "   Hello Progrummers"
+print(wrong_data)
+print(wrong_data.strip())
+print(wrong_data.find("Pro"))
+print(wrong_data.replace("u", "a"))
+print('----')
+
+
 # 7) Range: 
 # ----------------------Sequence--------------------
 # 8) Dictionary: (or mapping) All the keys has to be unique. 
