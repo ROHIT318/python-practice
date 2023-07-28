@@ -140,7 +140,16 @@ print(wrong_data.replace("u", "a"))
 print('----')
 
 
-# 7) Range: 
+# 7) Range:  It is a built-in function used to generate a sequence of numbers in a specified range.
+var = list(range(2,10))
+print(var) # [2,3,4,5,6,7,8,9]
+print(type(range(2)))
+
+# Range Parameter
+# range(start, end, step)
+var = list(range(2,10,2))
+print(var) # [2,4,6,8]
+print('----')
 # ----------------------Sequence--------------------
 # 8) Dictionary: (or mapping) All the keys has to be unique. 
 d = {'1': "Rohit", 2: "Rahul", 3: "Amit"}
