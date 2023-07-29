@@ -141,17 +141,17 @@ print('----')
 
 
 # 7) Range:  It is a built-in function used to generate a sequence of numbers in a specified range.
+# Declaration: range(Start, Stop, Step); Start is optional(default=0), Stop is required, Step is optional(default=1)
 var = list(range(2,10))
 print(var) # [2,3,4,5,6,7,8,9]
 print(type(range(2)))
 
 # Range Parameter
-# range(start, end, step)
 var = list(range(2,10,2))
 print(var) # [2,4,6,8]
 print('----')
 # ----------------------Sequence--------------------
-# 8) Dictionary: (or mapping) All the keys has to be unique. 
+# 8) Dictionary: It is a built-in data type that represents an unordered collection of key-value pairs. Dictionaries are mutable. Dictionary keys must be unique.
 d = {'1': "Rohit", 2: "Rahul", 3: "Amit"}
 print(d.keys())
 print(d.values())
