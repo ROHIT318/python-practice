@@ -8,4 +8,5 @@
 6. `data_types.py`: Describes different data types present in python
 7. `ia_employee.py`: Importing custom class or module created in `oop.py` and using here
 8. `oop.py`: OOP programming, working with pandas by importing data from `data.csv`
-9. `os_module.py`: Working with OS module in python
+9. `os_module.py`: Working with files in python
+10. `python_assigment.py`: Contains beginner level 4 questions and there solution.
