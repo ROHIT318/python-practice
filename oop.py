@@ -14,6 +14,7 @@ class Employee:
     def __init__(self, name: str, skill: str, has_bike="False"):
         # Do validation using assert
         assert type(name) == str, "Name should be string"
+        assert type(skill) == str, "Skill should be string"
         
         # creating attributes
         self.name = name
@@ -26,11 +27,10 @@ class Employee:
     # creating methods
     def skills_with_name(self):
         return self.skill + " " + self.name
-        
     def display_details(self):
         print(self.name + ", " + self.skill + ", " + self.bike)
         
-    # Magic method to represent the object (maybe)
+    # Magic method to represent the object
     def __repr__(self):
         return f"{self.name}-{self.skill}-{self.bike} from class {self.__class__.__name__}"
 
