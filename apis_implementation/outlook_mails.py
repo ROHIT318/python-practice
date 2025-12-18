@@ -8,14 +8,12 @@ import os
 load_dotenv()
 
 class OutlookMail():
-    """
-    Use to create instance which gives mail receiving date, sender mail and mail subject.
-    """
 
     def __init__(self, Authorization: str, start_date: datetime, end_date: datetime, num_of_msgs: int=5, content_type: str='application/json') -> None:
         """
         Inputs:
-            Authorization: Your access token. Ex: 'Bearer <your-token>'
+            Use to create instance which gives mail receiving date, sender mail and mail subject.
+            Authorization: Your access token. Ex: 'Bearer wenfNNidejdNN....'
             start_date: Date from which to fetch the mail. Ex: 'YYYY-MM-DDTHH:MM:SSZ'
             end_date: Date up till which to fetch the mail. Ex: 'YYYY-MM-DDTHH:MM:SSZ'
             num_of_msgs: Number of mails to fetch. Default value is 5. Ex: '5|6|7....'
