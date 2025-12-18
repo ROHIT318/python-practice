@@ -65,20 +65,6 @@ fun = original_function
 print(fun(fname="Rohit", lname="Sharma"))
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Required Arguments: Function will throw an error if argument not provided. Position should remain same.
 def req_arg_func(a: int,b: int) -> None:
     print(f'{a} and {b}')
