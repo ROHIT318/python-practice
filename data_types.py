@@ -153,10 +153,12 @@ print('----')
 # ----------------------Sequence--------------------
 # 8) Dictionary: It is a built-in data type that represents an unordered collection of key-value pairs. Dictionaries are mutable. Dictionary keys must be unique.
 d = {'1': "Rohit", 2: "Rahul", 3: "Amit"}
-print(d.keys())
-print(d.values())
-print(d['1'])
-print(d.get(3))
+print(d.keys())     # ['1', 2, 3]
+print(d)     # ['1', 2, 3]
+print(d.values())   # ["Rohit", "Rahul", "Amit"]
+print(d.items())    # [('1': "Rohit"), (2: "Rahul"), (3: "Amit")]
+print(d['1'])       # "Rohit"
+print(d.get(3, "Not Present"))     # get value for key 3 or else return "Not Present"
 
 
 # Typecasting:  Typecasting (also known as type conversion) refers to the process of changing the data type of a variable from one data type to another. 
