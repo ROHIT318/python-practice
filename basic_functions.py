@@ -101,6 +101,42 @@ def kwargs_func(**kwargs) -> None:
     print(f'\n{kwargs["h"]} and {kwargs["i"]}')
 # kwargs_func(h=1, i=2)
 
+# Map: Apply a function to all elements of an iterable. map(function, iterable). It returns a map object, so type cast it into an iterable.
+iter = [1,2,3,4,5,6]
+print(list(map(lambda x: x**2, iter))) # [1, 4, 9, 16, 25, 36]
+
+# Filter: Use to retain elements from a collection of elements. i.e. iterables. filter(condition, iterable). It returns a filter object, so type cast it into an iterable.
+iter = [1,2,3,4,5,6]
+print(list(filter(lambda x: x%2==0, iter))) # [2, 4, 6]
+
+# Sorted: Used to sort an iterable, based on certain condition. Returns a list object, no type casting needed. sorted(iterable, key); key is the one on which sorting will be applied.
+iter = [('a', 1), ('c', 2), ('d', 4), ('b', 3)]
+print(sorted(iter, key=lambda x: x[1]))         # [('a', 1), ('c', 2), ('b', 3), ('d', 4)]
+print(sorted(iter, key=lambda x: x[0]))         # [('a', 1), ('b', 2), ('c', 3), ('d', 4)]
+
+
+# exec: It is used to execute the code dynamically
+iter = ['print(1, end=" ")', 'print(2, end=" ")', 'print(3, end=" ")']
+for i in iter:          # 1 2 3
+    exec(i)  
+
+
+# Generators: They don't create the entire data in one go and store in memory. Instead they yield data as and when required. square_numbers returns a generator object need to pass it to 'next' in order to get the actual element
+print()
+def square_numbers(iter):
+    for i in iter:
+        yield i*i
+iter = [1,2,3,4,5,6]
+square = square_numbers(iter)
+print(next(square)) # 1
+print(next(square)) # 4
+print(next(square)) # 9
+print(next(square)) # 16
+print(next(square)) # 25
+print(next(square)) # 36
+# print(next(square)) # Error: StopIteration, cause ran out of elements.
+
+
 
 # Print function
 # It is a built-in function used to display output or information to the console or standard output stream.
