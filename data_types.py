@@ -68,23 +68,44 @@ print(var.pop())
 
 print(var)
 print(type(var))
+
+# List comprehension, Dictionary Comprehension, Set Comprehension, Generator Comprehension
+# Simple list comprehension
+ls = [1,2,3,4,5]
+squared_list = [n*n for n in ls]
+print(squared_list)                                     # [1, 4, 9, 16, 25]
+# var_name = [expression loop_1 loop_2]
+ls = [1,2,3]
+squared_list = [(n*n, n*n) for n in ls for n in ls]
+print(squared_list)                                     # [(1, 1), (4, 4), (9, 9), (1, 1), (4, 4), (9, 9), (1, 1), (4, 4), (9, 9)]
+# var_name = [expression loop_1 loop_2 condition_1]
+ls = [1,2,3]
+squared_list = [(n*n, n*n) for n in ls for n in ls if n%2!=0] # [(1, 1), (9, 9), (1, 1), (9, 9), (1, 1), (9, 9)]
+print(squared_list)
+
 print('----')
 # 4) Tuple: A tuple is a data type used to represent an ordered and immutable collection of elements. Similar to lists, tuples can hold elements of different data types, such as integers, strings, floats, or even other tuples.
 # Declaration
 tpl = (1,"Rohit",True)
-print(type(tpl)) # <class 'list'>
-print(tpl)       # (1, 'Rohit', True)
+print(type(tpl))    # <class 'list'>
+print(tpl)          # (1, 'Rohit', True)
 
 # Indexing and slicing
-print(tpl[1])  # Rohit
-print(tpl[:1]) # (1, )
+print(tpl[1])       # Rohit
+print(tpl[:1])      # (1, )
 # tpl[1] = 2
-print(type((1)))  # <class 'int'>
-print(type((1,))) # <class 'tuple'>
+print(type((1)))    # <class 'int'>
+print(type((1,)))   # <class 'tuple'>
 
 # Nested tuple
 nest_tpl = (1,2,3,(1,2))
-print(nest_tpl) # (1,2,3,(1,2))
+print(nest_tpl)     # (1,2,3,(1,2))
+
+# Tuple comprehension
+ls_1 = [1,2,3,4,5,6]
+# ---- Won't create tuple instead is a generator -----
+tup = (i for i in ls_1 if i%2==0)            # <generator object <genexpr> at 0x000001E5C7321560>
+print(tup)
 
 print('----')
 # 5) Set: A set is a data type used to represent an unordered collection of unique elements.
@@ -153,12 +174,26 @@ print('----')
 # ----------------------Sequence--------------------
 # 8) Dictionary: It is a built-in data type that represents an unordered collection of key-value pairs. Dictionaries are mutable. Dictionary keys must be unique.
 d = {'1': "Rohit", 2: "Rahul", 3: "Amit"}
-print(d.keys())     # ['1', 2, 3]
-print(d)     # ['1', 2, 3]
-print(d.values())   # ["Rohit", "Rahul", "Amit"]
-print(d.items())    # [('1': "Rohit"), (2: "Rahul"), (3: "Amit")]
-print(d['1'])       # "Rohit"
-print(d.get(3, "Not Present"))     # get value for key 3 or else return "Not Present"
+print(d.keys())                         # ['1', 2, 3]
+print(d)                                # ['1', 2, 3]
+print(d.values())                       # ["Rohit", "Rahul", "Amit"]
+print(d.items())                        # [('1': "Rohit"), (2: "Rahul"), (3: "Amit")]
+print(d['1'])                           # "Rohit"
+print(d.get(3, "Not Present"))          # get value for key 3 or else return "Not Present"
+d.update({'1': "Sharma", 2: "Rohit"})   # Update the value for keys in dictionary
+print(d)                                # {'1': 'Sharma', 2: 'Rohit', 3: 'Amit'}
+del d['1']                              # Deletes the element having '1' as key
+print(d)                                # {2: 'Rohit', 3: 'Amit'}
+name = d.pop(3)                         # Deletes and store value for key 3
+print(name)                             # Amit
+print(d)                                # {2: 'Rohit'}
+
+# Dictionary comprehension
+ls_1 = [1,2,3,4,5,6]
+ls_2 = [1,2,3,4,5,6]
+dictionary = [{i: j} for i, j in zip(ls_1, ls_2)]       # [{1: 1}, {2: 2}, {3: 3}, {4: 4}, {5: 5}, {6: 6}]
+# dictionary = {i: j for i, j in zip(ls_1, ls_2)}       # {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6}
+print(dictionary)
 
 
 # Typecasting:  Typecasting (also known as type conversion) refers to the process of changing the data type of a variable from one data type to another. 

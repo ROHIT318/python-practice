@@ -114,11 +114,23 @@ iter = [('a', 1), ('c', 2), ('d', 4), ('b', 3)]
 print(sorted(iter, key=lambda x: x[1]))         # [('a', 1), ('c', 2), ('b', 3), ('d', 4)]
 print(sorted(iter, key=lambda x: x[0]))         # [('a', 1), ('b', 2), ('c', 3), ('d', 4)]
 
-
 # exec: It is used to execute the code dynamically
 iter = ['print(1, end=" ")', 'print(2, end=" ")', 'print(3, end=" ")']
 for i in iter:          # 1 2 3
     exec(i)  
+
+# enumerate: Used for getting index and elements together.
+ls = [1,2,3,4,5,6]
+for i, ele in enumerate(ls):
+    print(i,ele)                        # 0 1 \n 1 2 \n 2 3 \n .....
+
+for i, ele in enumerate(ls, start=7):
+    print(i,ele)                        # 7 1 \n 8 2 \n 9 3 \n .....
+
+
+# zip: Used for clubbing together items and loop throught it
+for i, j in zip(ls, ls):
+    print(i, j)                         # 1 1 \n 2 2 \n 3 3 \n .....
 
 
 # Generators: They don't create the entire data in one go and store in memory. Instead they yield data as and when required. square_numbers returns a generator object need to pass it to 'next' in order to get the actual element
