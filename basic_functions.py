@@ -111,8 +111,8 @@ print(list(filter(lambda x: x%2==0, iter))) # [2, 4, 6]
 
 # Sorted: Used to sort an iterable, based on certain condition. Returns a list object, no type casting needed. sorted(iterable, key); key is the one on which sorting will be applied.
 iter = [('a', 1), ('c', 2), ('d', 4), ('b', 3)]
-print(sorted(iter, key=lambda x: x[1]))         # [('a', 1), ('c', 2), ('b', 3), ('d', 4)]
-print(sorted(iter, key=lambda x: x[0]))         # [('a', 1), ('b', 2), ('c', 3), ('d', 4)]
+print(sorted(iter, key=lambda x: x[1], reverse=True))         # [('d', 4), ('b', 3), ('c', 2), ('a', 1)]
+print(sorted(iter, key=lambda x: x[0]))                       # [('a', 1), ('b', 2), ('c', 3), ('d', 4)]
 
 # exec: It is used to execute the code dynamically
 iter = ['print(1, end=" ")', 'print(2, end=" ")', 'print(3, end=" ")']

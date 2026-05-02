@@ -4,7 +4,7 @@ import os
 os.mkdir("data")
 print(os.listdir())
 
-# Rename a file 
+# Rename a file (old_file_name, new_file_name)
 os.rename("data", "DATA")
 
 # Get the folders present 
@@ -17,7 +17,8 @@ print(os.getcwd())
 os.chdir("DATA/")
 print(os.getcwd())
 
-print(os.path.exists("data"))
+# To check whether the filepath exists. True if exists else False.
+print(os.path.exists("/data/"))
 
 # Get OS information name
 print(os.name)
@@ -33,6 +34,28 @@ for files in os.scandir('/home/'):
 # To create a file 
 os.mkdir("lol.txt")
 print(os.listdir())
+
+# Delete a directory
+os.rmdir('/delete/')
+
+# Delete intermediate directories
+os.removedirs('/delete/delete_folder')
+
+# all_files_path = []
+# for root, dirs, files in os.walk('<file-path>'):
+#       all_files_path.append(os.path.join(root, files))
+
+# # Get directory name from the path
+# print(os.path.dirname('<file-path>'))     # directory-file-path
+
+# # Get file name from the path
+# print(os.path.basename('<file-path>'))    # filename
+
+# # In case you want to get both directory and file name
+# print(os.path.split('<file-path>'))       # ('<dir-name>', 'filename')
+
+# # In case we want to split both filepath and extension of the file.
+# print(os.path.splitext('<file-path>'))    # ('<dir-name>/filename', '.ext')
 
 # To read and write in a file
 with open('/home/lol.txt', 'w') as content:
