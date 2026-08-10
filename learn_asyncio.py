@@ -44,6 +44,7 @@ async def main():
     print("--------------------------------------------")
 
     # Await keyword should be used within async function
+    # Await can be used only with asynchronous function reason being synchronous functions are not aware on how to pass the control to event loop and resume later.
     # Await keyword tells the event loop to take back control from currently executed function and give it to some other function for execution. Awaitable task will remain suspended until that task io or other dependent tasks complete.
     # Types of awaitable objects: 
         # Co-routines: Created when async functions are called. Coroutine functions are also know as async function and coroutine objects are also created when coroutine functions are called. Need to await the coroutine object to execute the same coroutine functions.
@@ -60,6 +61,7 @@ async def main():
 
     print("--------------------------------------------")
         # tasks: wrappers around co-routines that can be executed independently. When coroutine is wrapped in a task it gets handed over event loop to execute whenever it gets a chance.
+        # Follows FIFO, like the one created earliest will be executed first otherwise the one which is available for execution.
     start_time = time.time()  
     async_task1 = asyncio.create_task(async_func("Check async...."))
     async_task2 = asyncio.create_task(async_func2("Check async2...."))
@@ -77,11 +79,21 @@ async def main():
 
     print("--------------------------------------------")
 
-        # fuctures: low level object representing result. 
+    # futures: low level object representing result. 
 
+    # in case the code doesn't contains asynchronous features, we can wrap them in threads or processes to have the asynchronous feature.
+    print("Thread execution started")
+    start_time = time.time()
+    thread_async_task1 = asyncio.create_task(asyncio.to_thread(sync_func, 1))
+    thread_async_task2 = asyncio.create_task(asyncio.to_thread(sync_func, 2))
+    res1 = await thread_async_task1
+    print("Thread 1 fully completed....")
+    res2 = await thread_async_task2
+    print("Thread 2 fully completed....")
+    print(f"Total time taken {time.time()-start_time}")
 
 
 if __name__ == "__main__":
-    # In order to run asyncio function, need to start event loop first. Event loop can be imagined as a scheduler which takes into account of all the tasks needed to be executed, 
+    # In order to run asyncio function, need to start event loop first. Event loop can be imagined as a scheduler which takes into account of all the tasks needed to be executed, it passes or gives the control to different tasks or functions.
     asyncio.run(main())
 
